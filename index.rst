@@ -3,18 +3,42 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-ยินดีต้อนรับสู่ Nutanix 101's Honds-On Workshop
-==========================================================
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :titlesonly:
+
+   test
+
+.. _getting_started:
+
+----------------------------------------------
+ยินดีต้อนรับสู่ Nutanix 101's Honds-On Workshop
+----------------------------------------------
+
+ทดสอบภาษาไทย
+
+.. note:: 
+   This is note
+
+.. warning::
+   This is warning
+
+.. hint::
+   This is hint
+
+.. tip:: Pro Tip
+   This Pro Tip
 
 
+.. fa:: check
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+:|o|: task 1
+:|x|: task 2
+:|x|: task 3
+
+:fa:`check`
+:fa:`check lg`
+:fa:`square-o`
+:fa:`bars`
