@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuring Virtual Networks</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Deploying Workloads" href="deploy_workload.html" />
+    <link rel="prev" title="Distributed Storage Fabric" href="dsf.html" />
+
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  </head><body>
+
+  <div id="navbar" class="navbar-inverse navbar-default ">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/NutanixWorkshops.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html"> <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pe.html">Prism Element</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pe.html#prism-element-ui-review">Prism Element UI Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dsf.html">Distributed Storage Fabric</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dsf.html#configuring-storage-containers">Configuring Storage Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dsf.html#replication-factor-rf">Replication Factor (RF)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuring Virtual Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup-user-vm-network">Setup User VM Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-user-vm-network-with-ipam">Setup User VM Network with IPAM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_workload.html">Deploying Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deploy_workload.html#creating-a-windows-vm">Creating a Windows VM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy_workload.html#creating-a-linux-vm">Creating a Linux VM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html">Workload Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#power-actions-and-console-access">Power Actions and Console Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#cloning-vms">Cloning VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#high-availability-live-migration-affinity-policies">High Availability, Live Migration &amp; Affinity Policies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workload_manage.html#high-availability">High availability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workload_manage.html#live-migration">Live Migration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workload_manage.html#affinity-policies">Affinity Policies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_protection.html">Data Protection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_protection.html#vm-snapshots">VM Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_protection.html#protection-domains">Protection Domains</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="key_take.html">Takeaways</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pe.html">Prism Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsf.html">Distributed Storage Fabric</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuring Virtual Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup-user-vm-network">Setup User VM Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-user-vm-network-with-ipam">Setup User VM Network with IPAM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_workload.html">Deploying Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html">Workload Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_protection.html">Data Protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_take.html">Takeaways</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="configuring-virtual-networks">
+<span id="config-network"></span><h1>Configuring Virtual Networks<a class="headerlink" href="#configuring-virtual-networks" title="Permalink to this headline">¶</a></h1>
+<p>VM ทุกเครื่องที่อยูใน AHV จะใช้ Open vSwitch (OVS) ในการเชื่อมต่อถึงกัน โดย OVS เป็น open source software switch ที่ถูกนำมาใช้ใน Linux kernel และถูกออกแบบมาใช้กับการทำงานแบบ multi-server ในรูปแบบของ virtualization โดยที่ AHV ทุก Node จะมี OVS ประจำอยู่ และทุก OVS จากทุก Node นั้น จะรวมกันเป็น Single logical switch.</p>
+<p>ในแต่ละ node จะมี uplinked เชื่อมต่อไปยัง physical switch ด้วย port trunked/tagged สำหรับการใช้งานในหลายๆ VLANs และจะถูกนำไปสร้างเป็น virtual networks เพื่อให้ VM ได้ใช้งานต่อไป.</p>
+<p>เราสามารถสร้างกำหนด VM networking ได้อย่างง่ายผ่าน Prism หรืออีกวิธีคือการใช้ CLI/REST  ใน Lab ต่อไปเราจะได้สร้าง Virtual network ใน AHV และในแบบฝึกหัด <a class="reference internal" href="deploy_workload.html#deploy-workload"><span class="std std-ref">Deploying Workloads</span></a> เราจะได้ลองสร้าง Virtual NICs และ นำไปใช้งานกับ Virtual network ที่เราได้สร้างไว้.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ใน Lab นี้ จะเป็นการสร้าง networks ด้วย VLANs ที่ไม่มีอยู่จริง นั่นหมายความว่า จะไม่มี VM เครื่องไหนที่จะสามารถเชื่อมต่อออกไปภายนอก host ได้
+วัตถุประสงค์ของ Lab นี้เพื่อศึกษาความผิดพลาดที่เกิดขึ้นจากการสร้าง networks ด้วย VLANs ที่ไม่มีอยู่จริง.</p>
+</div>
+<p>สามารถเรียนรู้เพิ่มเติมเรื่อง AHV Networking <a class="reference external" href="https://nutanixbible.com/#anchor-book-of-ahv-networking">ได้ที่นี่</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ภายใน Labs นี้ จะมีการยกตัวอย่างด้วย <em>XYZ</em> หรือ <em>Initial</em> อยู่บ่อยครั้ง ดังนั้นให้ผู้เรียนสังเกตุ และเปลี่ยนตัวอย่างดังกล่าวให้เป็นชื่อของผู้เรียนเอง หรือเป็น User#No. ที่ได้รับมอบหมาย</p>
+</div>
+<div class="section" id="setup-user-vm-network">
+<h2>Setup User VM Network<a class="headerlink" href="#setup-user-vm-network" title="Permalink to this headline">¶</a></h2>
+<p>เข้า Prism Element และสร้าง Network เพื่อใช้สำหรับ VM Server เราสามารถสร้างได้หลาย vlan โดยให้เรากำหนดเลข vlan อะไรก็ได้ที่ไม่ใช่ 0 และไม่ต้องเปิดการใช้งาน IP Address Management.</p>
+<ol class="arabic">
+<li><p>ใน <strong>Prism Element &gt; VM</strong>, คลิก**VMs**, แล้วคลิก**Network Config**.</p></li>
+<li><p>Select <strong>Virtual Networks</strong>, then คลิก**+ Create Network**.</p></li>
+<li><p>กำหนดค่าต่างๆ ดังนี้ แล้วคลิก**Save**:</p>
+<ul class="simple">
+<li><p><strong>Name</strong> - <em>Initials</em>-Network</p></li>
+<li><p><strong>VLAN ID</strong> - A value (&lt; 4096) ที่ไม่ใช่ <strong>Primary</strong> or <strong>Secondary</strong> network VLANs ที่ใช้อยู่</p></li>
+<li><p>ไม่ต้องเลือก <strong>Enable IP Address Management</strong></p></li>
+</ul>
+<p>ตัวอย่างหลังจากทำการสร้าง VM Network.</p>
+<div class="figure align-default">
+<img alt="_images/network_config_04.png" src="_images/network_config_04.png" />
+</div>
+<p>การสร้าง Virtual network นี้จะสามารถเชื่อมต่อไปยัง nodes อื่นๆที่อยู่ใน Cluster ได้ Virtual networks ใน AHV จะมีลักษณะเหมือนกับ Distributed Virtual Switches ใน ESXi นั่นหมายความว่าเราไม่จำเป็นจะต้อง สร้าง Virtual networks settings ที่เหมือนกันในทุกๆ Host ที่อยู่ใน Cluster เมื่อสร้าง VMs ใน IPAM management networks เรายังสามารถเลือกที่จะระบุ IP ได้ด้วยตนเองระหว่างที่สร้าง vNIC ได้เช่นกัน.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="setup-user-vm-network-with-ipam">
+<h2>Setup User VM Network with IPAM<a class="headerlink" href="#setup-user-vm-network-with-ipam" title="Permalink to this headline">¶</a></h2>
+<p>สร้างอีกหนึ่ง virtual network แต่ครั้งนี้เปิดใช้งาน IPAM.</p>
+<ol class="arabic">
+<li><p>กำหนดค่าต่างๆ ดังนี้ แล้วคลิก**Save**:</p>
+<ul class="simple">
+<li><p><strong>Name</strong> - <em>Initials</em>-Network_IPAM</p></li>
+<li><p><strong>VLAN ID</strong> - A value (&lt; 4096) ที่ไม่ใช่ <strong>Primary</strong> or <strong>Secondary</strong> network VLANs ที่ใช้อยู่</p></li>
+<li><p>เลือก <strong>Enable IP Address Management</strong></p></li>
+<li><p><strong>Network IP Address / Prefix Length</strong> - 10.0.0.0/24</p></li>
+<li><p><strong>Gateway</strong> - 10.0.0.1</p></li>
+<li><p>ไม่ต้องเลือก <strong>Configure Domain Settings</strong></p></li>
+<li><p><strong>Create Pool</strong> - 10.0.0.100-10.0.0.150</p></li>
+<li><p>ไม่ต้องเลือก <strong>Override DHCP Server</strong></p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/network_config_03.png" src="_images/network_config_03.png" />
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>สามารถสร้างได้หลาย Pool ใน Network.</p>
+</div>
+<p>การกำหนด Virtual Network สามารถนำไปใช้งานได้ในทุก Nodes ใน cluster โดย VM ที่มี vNICs จะได้รับ DHCP จากช่วง VLAN ที่ถูกกำหนดไว้ โดย IP ที่ถูกกำหนดให้นี้ จะถูกกำหนดให้กับ VM นั้นๆ ไปตลอดทุกครั้งการใช้งานเลย ซึ่งก็จะสะดวกสำหรับหลาย workload ที่สร้างขึ้นมา ก็เป็นการเลี่ยงความจำเป็นที่จะต้องมาทำการจอง DHCP หรือทำการกำหนด static IP เอง.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/config_network.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Nutanix TH.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

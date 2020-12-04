@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Protection</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Takeaways" href="key_take.html" />
+    <link rel="prev" title="Workload Management" href="workload_manage.html" />
+
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  </head><body>
+
+  <div id="navbar" class="navbar-inverse navbar-default ">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/NutanixWorkshops.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html"> <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pe.html">Prism Element</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pe.html#prism-element-ui-review">Prism Element UI Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dsf.html">Distributed Storage Fabric</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dsf.html#configuring-storage-containers">Configuring Storage Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dsf.html#replication-factor-rf">Replication Factor (RF)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config_network.html">Configuring Virtual Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config_network.html#setup-user-vm-network">Setup User VM Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_network.html#setup-user-vm-network-with-ipam">Setup User VM Network with IPAM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_workload.html">Deploying Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deploy_workload.html#creating-a-windows-vm">Creating a Windows VM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy_workload.html#creating-a-linux-vm">Creating a Linux VM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html">Workload Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#power-actions-and-console-access">Power Actions and Console Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#cloning-vms">Cloning VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#migrating-a-vm-between-hosts">Migrating a VM Between Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#configuring-affinity-policies">Configuring Affinity Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#high-availability-dynamic-scheduling">High Availability &amp; Dynamic Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#prism-search">Prism Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Protection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#vm-snapshots">VM Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#protection-domains">Protection Domains</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="key_take.html">Takeaways</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pe.html">Prism Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsf.html">Distributed Storage Fabric</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_network.html">Configuring Virtual Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_workload.html">Deploying Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html">Workload Management</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Protection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#vm-snapshots">VM Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#protection-domains">Protection Domains</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="key_take.html">Takeaways</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="data-protection">
+<span id="id1"></span><h1>Data Protection<a class="headerlink" href="#data-protection" title="Permalink to this headline">¶</a></h1>
+<p>Nutanix สามารถทำการปกป้องข้อมูล ด้วยการทำ storage snapshot ในระดับ VM/vDisk ซึ่งจะมี Protection Domains (PDs) ที่เป็นการสร้างกลุ่มของ VM ที่ต้องการปกป้องข้อมูล โดยสามารถกำหนด policy ของ snapshot และ replication ตามที่ต้องการให้กับกลุ่ม VM นั้นๆ.</p>
+<p>ใน Exercise นี้ เราจะใช้ Prism ในการ create และ restore จาก VM snapshots และยังสร้าง Protection Domain สำหรับทำการปกป้องข้อมูล VM ของเราด้วย.</p>
+<div class="section" id="vm-snapshots">
+<h2>VM Snapshots<a class="headerlink" href="#vm-snapshots" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>ใน <strong>Prism Element &gt; VM &gt; Table</strong>, เลือก <em>Initials</em>-<strong>Linux_VM</strong> ที่สร้างไว้.</p></li>
+<li><p>คลิกที่ <strong>Snapshot</strong> จาก Action list ด้านล่าง.</p></li>
+<li><p>กำหนดชื่อ snapshot แล้วคลิก <strong>Submit</strong>.</p></li>
+<li><p>ไปที่แท็ป <strong>VM Snapshots</strong> ที่อยู่ด้านล่าง เพื่อตรวจสอบ snapshot ของ VM นั้นๆ.</p>
+<div class="figure align-default">
+<img alt="_images/manage_workloads_04.png" src="_images/manage_workloads_04.png" />
+</div>
+</li>
+<li><p>ภายใต้ <strong>Actions</strong>, คลิกที่ <strong>Details</strong> เพื่อดูคุณสมบัติต่างๆ ของ VM ทั้งหมด ณ เวลาที่ทำการ snapshot.</p>
+<p><em>ถึงเวลา ทำลาย VM แล้ว!</em></p>
+</li>
+<li><p>ให้ทำการปิด VM นั้น โดยกด Power Off Actions &gt; Power Off (หากเราไม่ปิดเครื่องก่อนเราจะไม่สามารถลบ devices ได้)</p></li>
+<li><p>คลิก <strong>Update</strong> เพื่อจะทำการแก้ไข resource ของตัว VM โดยทำการลบ CD-ROM และ DISK ออกด้วยการกด <strong>X</strong> icon ของแต่ละชิ้น.</p></li>
+<li><p>คลิก <strong>Save</strong>.</p></li>
+<li><p>ลอง power on และเปิดหน้า console ของ window.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>เนื่องจาก VM นี้ ไม่มี disk ที่ใช้ในการบูทเข้า OS อีกแล้ว ฉะนั้น หน้าจอ console เลยแสดงเป็นหน้าเกมส์ 2048 ขึ้นมาแทน</p>
+</div>
+</li>
+<li><p>ภายใต้แท็ป <strong>VM Snapshots</strong>, เลือก snapshot ที่ต้องการแล้วคลิก <strong>Restore</strong> เพื่อที่จะกู้คืน VM นี้ให้กลับไปอยู่ในสถานะก่อนหน้าเหมือนตอนที่ทำ snapshot นี้ขึ้นมา.</p>
+<p>หรืออีกทางเลือกนึง เราสามารถทำการกด <strong>Clone</strong> เพื่อทำการ restore ขึ้นมาเป็น VM เครื่องใหม่.</p>
+</li>
+<li><p>ตรวจสอบว่า VM สามารถบูทขึ้นมาเข้า OS ได้อย่างสมบูรณ์.</p></li>
+</ol>
+<p>อย่างที่กล่าวไว้ก่อนหน้านี้ Nutanix snapshots ใช้วิธีการทำแบบ <a class="reference external" href="https://nutanixbible.com/#anchor-book-of-aos-snapshots-and-clones">redirect-on-write</a> approach that does not suffer from the performance degradation of chained snapshots found in other hypervisors.</p>
+</div>
+<div class="section" id="protection-domains">
+<h2>Protection Domains<a class="headerlink" href="#protection-domains" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>ใน <strong>Prism Element &gt; Data Protection &gt; Table</strong>, คลิก <strong>+ Protection Domain &gt; Async DR</strong> เพื่อสร้าง Protection Domain.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Synchronous replication + Metro Availability ซัพพอร์ทบน ESXi เท่านั้น จะซัพพอร์ทบน AHV ในอนาคตอันใกล้นี้
+Synchronous replication ซัพพอร์ทบน ESXi และ AHV (5.17 or later) and will be supported in AHV in a future release.</p>
+</div>
+</li>
+<li><p>เมื่อมีการใช้งาน Data Protection จะมีกล่องข้อความแสดงขึ้นมา. คลิกที่ปุ่ม <strong>OK</strong> เพื่อไปต่อ.</p></li>
+</ol>
+<div class="figure align-default">
+<img alt="_images/data_protection_01.png" src="_images/data_protection_01.png" />
+</div>
+<ol class="arabic">
+<li><p>ตั้งชื่อสำหรับ PD แล้วกด <strong>Create</strong>.</p></li>
+<li><p>เลือก VM ที่เราสร้างไปก่อนหน้าใน Lab นี้ เพื่อทำ Protection domain ของ VM นั้น โดยสามารถใช้ filter VM จากชื่อหรือจะเลื่อนหา VM ที่เราต้องการก็ได้.</p></li>
+<li><p>คลิกที่ <strong>Protect Selected Entities</strong> แล้วทำการตรวจสอบ VM ที่ปรากฏขึ้นมาทางด้านขวามือ <strong>Protected Entities</strong>.</p>
+<p><strong>Consistency Groups</strong> คือการที่เราสามารถจัดกลุ่มของหลายๆ VM ที่มีการทำ snapshot ในเวลาเดียวกันเข้าไว้ด้วยกัน เช่น กลุ่มของหลายๆ VM ที่เป็นของ application เดียวกัน ก็ทำการกำหนด snapshot policy เดียวกัน.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>การทำ snapshots ของ Nutanix สามารถทำ application consistent snapshots ได้บนระบบปฏิบัติการ OS ที่รองรับพร้อมด้วยต้องติดตั้ง NGT ลงบน VM และในแต่ละ VM ที่ใช้ application consistent snapshots จะอยู่ในส่วนของ consistency group ของมันเอง.</p>
+</div>
+</li>
+<li><p>คลิก <strong>Next</strong>.</p></li>
+<li><p>คลิก <strong>New Schedule</strong> เพื่อกำหนด Recovery Point Objective (RPO) และกำหนด retention.</p></li>
+<li><p>ทำการกำหนดความถี่ในการทำ snapshot ที่ต้องการ เช่น ทำ snapshot ทุกๆ 1 ชั่วโมง</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>AHV รองรับการทำ NearSync snapshots ด้วย RPO ต่ำสุดที่ 1 นาที.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>เราสามารถกำหนดหลายๆ schedules อยู่ใน PD เดียวกันได้ ซึ่งทำให้เราสามารถทำและเก็บ snapshot/retention ได้หลายๆ version ในแบบทุกชั่วโมง, ทุกวัน, ทุกเดือน ตามที่เรากำหนด.</p>
+</div>
+</li>
+<li><p>ทำกำหนดจำนวน retention policy ในการเก็บ snapshot เช่น เก็บ 5 snapshot ล่าสุด</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>สำหรับการกำหนดของตัว remote cluster นั้น สามารถกำหนดการทำ replication ได้ง่ายๆ โดยการกำหนดจำนวนของ snapshot ที่ต้องการเก็บในแต่ละ remote site.</p>
+<div class="figure align-default">
+<img alt="_images/snapshot_02.png" src="_images/snapshot_02.png" />
+</div>
+</div>
+</li>
+<li><p>คลิก <strong>Create Schedule</strong>.</p></li>
+<li><p>คลิก <strong>Close</strong> เพื่อออก.</p></li>
+</ol>
+<p>เพียงแค่เท่านี้เอง เราก็เสร็จสิ้นการสร้าง native data protection ของ Nutanix เองภายใต้หน้า Prism แล้ว</p>
+<p>สามารถเรียนรู้เพิ่มเติมเรื่อง <strong>Backup and Disaster Recovery</strong> <a class="reference external" href="https://nutanixbible.com/#anchor-book-of-aos-backup-and-disaster-recovery">ได้ที่นี่</a>.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/data_protection.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Nutanix TH.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

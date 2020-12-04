@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploying Workloads</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Workload Management" href="workload_manage.html" />
+    <link rel="prev" title="Configuring Virtual Networks" href="config_network.html" />
+
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  </head><body>
+
+  <div id="navbar" class="navbar-inverse navbar-default ">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/NutanixWorkshops.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html"> <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pe.html">Prism Element</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pe.html#prism-element-ui-review">Prism Element UI Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dsf.html">Distributed Storage Fabric</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dsf.html#configuring-storage-containers">Configuring Storage Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dsf.html#replication-factor-rf">Replication Factor (RF)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config_network.html">Configuring Virtual Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config_network.html#setup-user-vm-network">Setup User VM Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_network.html#setup-user-vm-network-with-ipam">Setup User VM Network with IPAM</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deploying Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-windows-vm">Creating a Windows VM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-linux-vm">Creating a Linux VM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html">Workload Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#power-actions-and-console-access">Power Actions and Console Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#cloning-vms">Cloning VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#migrating-a-vm-between-hosts">Migrating a VM Between Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#configuring-affinity-policies">Configuring Affinity Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#high-availability-dynamic-scheduling">High Availability &amp; Dynamic Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#prism-search">Prism Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_protection.html">Data Protection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_protection.html#vm-snapshots">VM Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_protection.html#protection-domains">Protection Domains</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="key_take.html">Takeaways</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pe.html">Prism Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsf.html">Distributed Storage Fabric</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_network.html">Configuring Virtual Networks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deploying Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-windows-vm">Creating a Windows VM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-linux-vm">Creating a Linux VM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html">Workload Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_protection.html">Data Protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_take.html">Takeaways</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="deploying-workloads">
+<span id="deploy-workload"></span><h1>Deploying Workloads<a class="headerlink" href="#deploying-workloads" title="Permalink to this headline">¶</a></h1>
+<p>นอกจากเรื่องของ storage แล้ว เรายังสามารถทำการ Create Manage และ Monitor VM ได้ โดยทำฟังก์ชันทุกอย่างนี้บน Nutanix AHV ผ่าน Prism ได้โดยตรง.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Prism สามารถรองรับการจัดการ VM CRUD (Create, Read, Update, Delete) บน Nutanix Cluster ที่ใช้งานเป็น ESXi ได้เช่นเดียวกัน.</p>
+</div>
+<p>ใน Lab นี้ จะเป็นการสร้าง VMs จาก source media และจาก disk image ที่ได้เตรียมไว้แล้ว.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ภายใน Labs นี้ จะมีการยกตัวอย่างด้วย <em>XYZ</em> หรือ <em>Initial</em> อยู่บ่อยครั้ง ดังนั้นให้ผู้เรียนสังเกตุ และเปลี่ยนตัวอย่างดังกล่าวให้เป็นชื่อของผู้เรียนเอง หรือเป็น User#No. ที่ได้รับมอบหมาย</p>
+</div>
+<div class="section" id="creating-a-windows-vm">
+<h2>Creating a Windows VM<a class="headerlink" href="#creating-a-windows-vm" title="Permalink to this headline">¶</a></h2>
+<p>ใน Lab นี้ เราจะทำการสร้าง Windows Server VM จาก Windows ISO image.</p>
+<p><strong>AHV</strong> นั้น มีฟังก์ชัน <strong>Image Service</strong> ที่สามารถสร้างแหล่งเก็บไฟล์ต่างๆ ที่ถูก import เข้ามาได้ ในตอนที่เราต้องการสร้าง VM นั้น เราสามารถ mount ISO image ขึ้นมาเป็น CD-ROM หรือจะเป็นการใช้ disk image ที่มี operating system พร้อมใช้งานแล้วก็ได้ โดย Image Service นั้น สามารถรองรับไฟล์รูปแบบ raw, vhd, vhdx, vmdk, vdi, iso และ qcow2 disk.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>เราสามารถเปิดเข้าไปดู images ที่มีให้ใช้งานได้ และสามารถ upload ไฟล์ images เพิ่มเติมเข้าไปได้ โดยเข้าที่ Prism Element แล้วไปที่ Setting ภายใต้ <em class="fa fa-cog"></em> <strong>&gt; Image Configuration</strong>.</p>
+</div>
+<p>สำหรับ Performance ที่ดีของ VM ที่สร้างขึ้นมา AHV นั้น จะต้องติดตั้ง paravirtualized drivers เข้าไปยัง guest vm ด้วย (เหมือนกับ VMware Tools) สำหรับ Windows guests นั้น ระหว่างติดตั้ง VM จะต้อง load ตัว drivers นี้ เพื่อที่ Windows installer ของ VM จะสามารถ access หรือมองเห็น disk ได้.</p>
+<p>สามารถ download driver ได้จาก <a class="reference external" href="http://portal.nutanix.com">http://portal.nutanix.com</a>. <a href="#id1"><span class="problematic" id="id2">**</span></a><a href="#id3"><span class="problematic" id="id4">*</span></a>ไฟล์ driver ที่เป็น ISO image ถูกเตรียมไวใน Image Service เรียบร้อยแล้ว.</p>
+<ol class="arabic">
+<li><p>ใน <strong>Prism Element &gt; VM &gt; Table</strong>, คลิก**+ Create VM**.</p></li>
+<li><p>กำหนดค่าต่างๆ ดังนี้ แล้วคลิก**Save**.</p>
+<blockquote>
+<div><p>ค่าต่างๆ ที่ไม่ได้ระบุ ให้ใช้ค่า default values.</p>
+</div></blockquote>
+<ul>
+<li><p><strong>Name</strong> - <em>Initials</em>-Windows_VM</p></li>
+<li><p><strong>Description</strong> - (Optional) Description for your VM.</p></li>
+<li><p><strong>vCPU(s)</strong> - 2</p></li>
+<li><p><strong>Number of Cores per vCPU</strong> - 1</p></li>
+<li><p><strong>Memory</strong> - 4 GiB</p></li>
+<li><dl>
+<dt>คลิกที่เครื่องหมาย <em class="fa fa-pencil"></em> ด้านหลัง CDROM</dt><dd><ul class="simple">
+<li><p><strong>Operation</strong> - Clone from Image Service</p></li>
+<li><p><strong>Image</strong> - Windows2016.ISO</p></li>
+<li><p>คลิก <strong>Update</strong></p></li>
+</ul>
+<p><em>ในขั้นตอน เป็นการ mount ตัว Windows Server ISO จาก Image Service เพื่อใช้สำหรับการติดตั้งหรือ boot เครื่องขึ้นมา</em></p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>คลิก <strong>+ Add New Disk</strong></dt><dd><ul class="simple">
+<li><p><strong>Type</strong> - DISK</p></li>
+<li><p><strong>Operation</strong> - Allocate on Storage Container</p></li>
+<li><p><strong>Storage Container</strong> - Default</p></li>
+<li><p><strong>Size (GiB)</strong> - 30 GiB</p></li>
+<li><p>คลิก <strong>Add</strong></p></li>
+</ul>
+<p><em>ในขั้นตอนนี้เป็นการสร้าง vDisk ขนาด 30GiB บนตัว Storage Container ที่เราเลือกไว้</em></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>คลิก <strong>+ Add New Disk</strong></dt><dd><ul class="simple">
+<li><p><strong>Type</strong> - CDROM</p></li>
+<li><p><strong>Operation</strong> - Clone from Image Service</p></li>
+<li><p><strong>Image</strong> - Nutanix VirtIO ISO</p></li>
+<li><p>คลิก <strong>Add</strong></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>คลิก <strong>Add New NIC</strong></dt><dd><ul class="simple">
+<li><p><strong>VLAN Name</strong> - Primary</p></li>
+<li><p>คลิก <strong>Add</strong></p></li>
+</ul>
+<p><em>ในขั้นตอนนี้ จะเป็นการเพิ่ม virtual NIC เข้าไปยัง VM แล้วผูกกับ Virtual Network ที่เราเลือกไว้</em></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>คลิก**Save** เพื่อทำการสร้าง VM.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>สามารถตรวจสอบ OS ที่สามารถใช้งานได้กับ AHV ได้ที่ <a class="reference external" href="https://portal.nutanix.com/page/documents/compatibility-matrix/guestos">Nutanix Portal</a></p>
+</div>
+</li>
+<li><p>เลือกไปที่ VM ที่เราสร้างขึ้น แล้วกด <strong>Power On</strong> จาก Actions List ด้านล่างเพื่อที่จะเปิดเครื่อง VM.</p>
+<div class="figure align-default">
+<img alt="_images/deploy_workloads_vm_options.png" src="_images/deploy_workloads_vm_options.png" />
+</div>
+</li>
+<li><p>เลือกไปที่ VM ที่เราสร้างขึ้น แล้วกด <strong>Launch Console</strong> าก Actions List ด้านล่างเพื่อที่จะเข้าไปยังหน้า console ผ่าน HTML5 เพื่อเข้าไปใช้งาน VM.</p></li>
+<li><p>ทำตามกระบวนการติดตั้งไปตามปกติ ไปจนถึงหน้าที่เป็น Windows install location.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>อย่าลืมเลือกเป็นฌหมด GUI <strong>Windows Server 2016 Desktop Experience (Server with a GUI)</strong> and <strong>Custom</strong> และเลือกติดตั้งแบบ <strong>Custom</strong>.</p>
+</div>
+</li>
+<li><p>คลิก**Load Driver** แล้วเลือกไปยัง CD ที่มี Nutanix VirtIO ISO ที่ถูก mount อยู่แล้ว.</p></li>
+<li><p>เลือก VirtIO driver แล้วเลือก directory ของ Windows OS ตาม version ที่เราจะติดตั้ง ตามภาพล่างนี้.</p>
+<div class="figure align-default">
+<img alt="_images/deploy_workloads_05.png" src="_images/deploy_workloads_05.png" />
+</div>
+<div class="figure align-default">
+<img alt="_images/deploy_workloads_06.png" src="_images/deploy_workloads_06.png" />
+</div>
+</li>
+<li><p>เลือก Nutanix driver ที่แสดงตามด้านล่าง  (โดยการกดปุ่ม Ctrl ค้างไว้และเลือก driver ทั้ง 3ตัว):</p>
+<ul class="simple">
+<li><p>Balloon</p></li>
+<li><p>Ethernet adapter</p></li>
+<li><p>SCSI passthrough controller</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/deploy_workloads_07.png" src="_images/deploy_workloads_07.png" />
+</div>
+</li>
+<li><p>คลิก**Next**.</p>
+<p>หลังจากโหลดตัว driver แล้ว disk ที่ถูกสร้างขึ้นในขั้นตอนที่ 2 จะปรากฏขึ้นมา เราจะใช้ disk นี้ในการติดตั้ง Windows OS.</p>
+</li>
+<li><p>เลือก disk นั้น และดำเนินกระบวนการติดตั้งตามขั้นตอนปกติต่อไปจนเสร็จ.</p></li>
+<li><ol class="arabic simple" start="12">
+<li><p>หลังจากติดตั้งเสร็จเรียบร้อยแล้ว Windows ISO ที่ใช้ติดตั้งสามารถ unmount ออกได้ และ CD-ROM อีกตัวที่ใช้สำหรับ drivers สามารถลบออกจาก VM ได้เลย (VM must be powered off).</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>สำหรับ ESXi clusters ถ้าสร้าง VM ผ่าน VMware vSphere นั้น เราสามารถเห็น VM list ภายในตัว Prism ด้วย หรือถ้าเราสร้าง VM ผ่านหน้า Prism นั้น เราก็สามารถเห็น VM list แสดงในหน้า UI ของ VMware vSphere ด้วย โดยที่ไม่จำเป็นต้องรอ หรือทำการ sync เองแต่อย่างใด.</p>
+<div class="figure align-default">
+<img alt="_images/deploy_workloads_08.png" src="_images/deploy_workloads_08.png" />
+</div>
+</div>
+</li>
+<li><p>หลังจากที่ทำการติดตั้ง OS แล้วนั้น เราสามารถทำการติดตั้ง <strong>Nutanix Guest Tools (NGT)</strong> ให้สมบูรณ์โดยการเลือก VM ที่สร้างขึ้นใน Prism แล้วกดเลือก <strong>Manage Guest Tools &gt; Enable Nutanix Guest Tools &gt; Mount Guest Tools</strong>, แล้วคลิก <strong>Submit</strong>.</p>
+<p>Tขั้นตอนนี้ เราจะต้อง mount NGT ISO ผ่าน Virtual CD-ROM เพื่อติดตั้ง driver ไปยัง VM ก่อน ซึ่ง NGT นี้จะมีทั้ง VirtIO drivers ที่เราติดตั้งไปก่อนหน้านี้ และยังรวมถึง services ที่รองรับกับฟังก์ชัน  <strong>Self-Service File Restore (SSR)</strong> และ <strong>Application Consistent (VSS) snapshots</strong>.</p>
+<blockquote>
+<div><div class="figure align-default">
+<img alt="_images/deploy_workloads_nutanix_guest_tools.png" src="_images/deploy_workloads_nutanix_guest_tools.png" />
+</div>
+</div></blockquote>
+</li>
+<li><ol class="arabic simple" start="14">
+<li><p>กลับไปยังหน้า console ของ VM เพื่อทำการติดตั้ง NGT ให้เสร็จเรียบร้อยโดยไปที่ Nutanix Guest Tools CD.</p></li>
+</ol>
+<blockquote>
+<div><div class="figure align-default">
+<img alt="_images/deploy_workloads_ngt_mounted.png" src="_images/deploy_workloads_ngt_mounted.png" />
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="creating-a-linux-vm">
+<h2>Creating a Linux VM<a class="headerlink" href="#creating-a-linux-vm" title="Permalink to this headline">¶</a></h2>
+<p>ใน Lab นี้ จะเป็นการสร้าง CentOS VM จาก disk image ที่มีการ pre-installed OS ไว้เรียบร้อยแล้ว ซึ่งจะเหมือนกับการสร้าง Template ในระบบทั่วๆไป.
+Disk Image ได้ถูกเตรียมไว้แล้วเหมือน Exercise ก่อนหน้า.</p>
+<ol class="arabic">
+<li><p>ใน <strong>Prism Element &gt; VM &gt; Table</strong>, คลิก**+ Create VM**.</p></li>
+<li><p>กำหนดค่าต่างๆ ดังนี้ แล้วคลิก**Save**:</p>
+<ul>
+<li><p><strong>Name</strong> - <em>Initials</em>-Linux_VM</p></li>
+<li><p><strong>Description</strong> - (Optional) Description for your VM.</p></li>
+<li><p><strong>vCPU(s)</strong> - 1</p></li>
+<li><p><strong>Number of Cores per vCPU</strong> - 1</p></li>
+<li><p><strong>Memory</strong> - 2 GiB</p></li>
+<li><dl>
+<dt>เลือก <strong>+ Add New Disk</strong></dt><dd><ul class="simple">
+<li><p><strong>Type</strong> - DISK</p></li>
+<li><p><strong>Operation</strong> - Clone from Image Service</p></li>
+<li><p><strong>Image</strong> - CentOS7.qcow2</p></li>
+<li><p>เลือก <strong>Add</strong></p></li>
+</ul>
+<p><em>This will create a thin clone of the existing CentOS disk image</em></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>เลือก <strong>Add New NIC</strong></dt><dd><ul class="simple">
+<li><p><strong>VLAN Name</strong> - Primary</p></li>
+<li><p>เลือก <strong>Add</strong></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/deploy_workloads_03.png" src="_images/deploy_workloads_03.png" />
+</div>
+</li>
+<li><p>คลิก**Save** เพื่อสร้าง VM.</p></li>
+<li><p><strong>Launch the console</strong> เพื่อตรวจสอบ VM ที่สร้างขึ้น.</p></li>
+</ol>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/deploy_workload.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Nutanix TH.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

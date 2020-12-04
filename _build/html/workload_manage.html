@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workload Management</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Protection" href="data_protection.html" />
+    <link rel="prev" title="Deploying Workloads" href="deploy_workload.html" />
+
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  </head><body>
+
+  <div id="navbar" class="navbar-inverse navbar-default ">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/NutanixWorkshops.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html"> <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pe.html">Prism Element</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pe.html#prism-element-ui-review">Prism Element UI Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dsf.html">Distributed Storage Fabric</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dsf.html#configuring-storage-containers">Configuring Storage Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dsf.html#replication-factor-rf">Replication Factor (RF)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config_network.html">Configuring Virtual Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config_network.html#setup-user-vm-network">Setup User VM Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_network.html#setup-user-vm-network-with-ipam">Setup User VM Network with IPAM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_workload.html">Deploying Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deploy_workload.html#creating-a-windows-vm">Creating a Windows VM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy_workload.html#creating-a-linux-vm">Creating a Linux VM</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Workload Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#power-actions-and-console-access">Power Actions and Console Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloning-vms">Cloning VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#migrating-a-vm-between-hosts">Migrating a VM Between Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-affinity-policies">Configuring Affinity Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#high-availability-dynamic-scheduling">High Availability &amp; Dynamic Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prism-search">Prism Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_protection.html">Data Protection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_protection.html#vm-snapshots">VM Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_protection.html#protection-domains">Protection Domains</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="key_take.html">Takeaways</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pe.html">Prism Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsf.html">Distributed Storage Fabric</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_network.html">Configuring Virtual Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_workload.html">Deploying Workloads</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Workload Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#power-actions-and-console-access">Power Actions and Console Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloning-vms">Cloning VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#migrating-a-vm-between-hosts">Migrating a VM Between Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-affinity-policies">Configuring Affinity Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#high-availability-dynamic-scheduling">High Availability &amp; Dynamic Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prism-search">Prism Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_protection.html">Data Protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_take.html">Takeaways</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="workload-management">
+<span id="workload-manage"></span><h1>Workload Management<a class="headerlink" href="#workload-management" title="Permalink to this headline">¶</a></h1>
+<p>ถึงขั้นตอนนี้ เราได้สร้าง VM ขึ้นมาแล้ว 2 VMs สามารถทดสอบฟังก์ชัน VM management ต่างๆ ภายใน AHV นี้ได้ตามนี้.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ภายใน Labs นี้ จะมีการยกตัวอย่างด้วย <em>XYZ</em> หรือ <em>Initial</em> อยู่บ่อยครั้ง ดังนั้นให้ผู้เรียนสังเกตุ และเปลี่ยนตัวอย่างดังกล่าวให้เป็นชื่อของผู้เรียนเอง หรือเป็น User#No. ที่ได้รับมอบหมาย</p>
+</div>
+<div class="section" id="power-actions-and-console-access">
+<h2>Power Actions and Console Access<a class="headerlink" href="#power-actions-and-console-access" title="Permalink to this headline">¶</a></h2>
+<p>เราสามารถสั่ง Power on/off VM ได้และเข้าหน้า console ได้ตามล่างนี้.</p>
+<ol class="arabic">
+<li><p>ใน <strong>Prism Element &gt; VM &gt; Table</strong>, แล้วให้ใส่ชื่อ VM ของเราในช่องค้นหาด้านขวาเป็น Linux VM ที่เราได้สร้างไว้ก่อนหน้านี้ เพื่อจะได้กรองเฉพาะชื่อ VM ที่เราต้องการเท่านั้น เช่น <em>Initials</em>-<strong>Linux_VM</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note ในหน้าที่แสดง VM &gt; table นี้ จะมีไฟแสดงสถานะการปิด/เปิดเครื่อง VM อยู่ใน column แรก โดยถ้าเป็นจุดสีแดง แสดงว่า VM นั้นอยู่ในสถานะปิดเครื่องอยู่.</p>
+</div>
+</li>
+<li><p>ให้เลือก VM ที่ต้องการ แล้วกด <strong>Power On</strong> เพื่อเปิด VM .</p></li>
+<li><p>เลือก VM นั้นอีกที แล้วกด <strong>Launch Console</strong>.</p>
+<p>ในหน้า console ของ Window จะมีให้ใช้งานได้ 4 ฟังก์ชัน คือ: <strong>Mount ISO, CTRL-ALT-DEL, Take Screen Capture, and Power</strong>.</p>
+<div class="figure align-default">
+<img alt="_images/manage_workloads_01.png" src="_images/manage_workloads_01.png" />
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ในกรณีที่ใช้ ESX:</p>
+<ul class="simple">
+<li><p>เราสามารถดำเนินการตาม Lab ด้านบนได้จากหน้า Prism เพียงแค่ทำการรีจิสเตอร์ VMware vCenter เข้ากับ Prism.</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/manage_workloads_06.png" src="_images/manage_workloads_06.png" />
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="cloning-vms">
+<h2>Cloning VMs<a class="headerlink" href="#cloning-vms" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>ใน <strong>Prism Element &gt; VM &gt; Table</strong>, เลือก <em>Initials</em>-<strong>Linux_VM</strong> ที่สร้างไว้.</p></li>
+<li><p>คลิก <strong>Clone</strong> จาก <strong>Actions</strong> list ด้านล่าง.</p></li>
+<li><p>กำหนดค่าต่างๆ ดังนี้ แล้วคลิก**Save**.</p>
+<blockquote>
+<div><p>ค่าต่างๆ ที่ไม่ได้ระบุ ให้ใช้ค่า default values.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Number of Clones</strong> - 2</p></li>
+<li><p><strong>Prefix Name</strong>  - <em>Initials</em>-Linux-Clone</p></li>
+<li><p><strong>Starting Index Number</strong> - 1</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/manage_workloads_02.png" src="_images/manage_workloads_02.png" />
+</div>
+</li>
+<li><p>ปล่อยให้ VM ที่ถูก clone ขึ้นมาเป็นสถานะ <strong>Powered Off</strong>.</p>
+<p>ในส่วนการทำ Snapshot และ Clone ของ Nutanix นั้น ใช้อัลกอริทึมในการทำงานแบบ <a class="reference external" href="https://nutanixbible.com/#anchor-book-of-aos-snapshots-and-clones">redirect-on-write</a> ซึ่งจะเป็นการเก็บ metadata ของตัวข้อมูลในแต่ละ VM โดย metadata นี้จะเก็บตำแหน่งของข้อมูลที่ถูกเก็บลงบน disk ว่าอยู่ตำแหน่งไหนบ้างเท่านั้น โดยไม่ได้มีการคัดลอกข้อมูลนั้นๆ ขึ้นมาอีกชุดแต่อย่างใด เพื่อทำให้การทำงานของ snapshot และ clone ทำได้อย่างรวดเร็ว และมีประสิทธิภาพที่ดี แม้ว่าจะมีการสั่ง ทำการ snapshot หรือ clone ขึ้นมาหลายๆ VM version ก็ตาม.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="migrating-a-vm-between-hosts">
+<h2>Migrating a VM Between Hosts<a class="headerlink" href="#migrating-a-vm-between-hosts" title="Permalink to this headline">¶</a></h2>
+<p>การย้าย VM ข้าม Host ภายใน Cluster เดียวกันแบบออนไลน์ โดยไม่ส่งผลกระทบกับระบบที่มีการใช้งานอยู่ในขณะนั้น เรียกว่า VM live migration ซึ่งถือว่าเป็นฟังก์ชันการทำงานที่มีความสำคัญอย่างยิ่งสำหรับระบบ Virtualization นี้ เพื่อที่เราสามารถทำเรื่องการซ่อมบำรุงระบบ Infrastructure หรือกระจายการทำงานของ workload ให้สามารถทำงานได้อย่างมี performance ที่ดีที่สุดได้.</p>
+<ol class="arabic">
+<li><p>ใน <strong>Prism Element &gt; VM &gt; Table</strong>, เลือก <em>Initials</em>-<strong>Linux_VM</strong> ที่สร้างไว้.</p>
+<p>สังเกตุที่คอลัมน์ <strong>Host</strong> จะเห็นว่า VM ที่อยู่ในสถานะปิดอยู่ (power off) จะไม่มีข้อความใดๆ แสดงขึ้นมาเลย.</p>
+<div class="figure align-default">
+<img alt="_images/manage_workloads_03.png" src="_images/manage_workloads_03.png" />
+</div>
+</li>
+<li><p>เลือก VM ที่ <strong>Powered On</strong> อยู่, แล้วคลิก <strong>Migrate</strong> จาก Action List ด้านล่าง.</p>
+<p>ในการย้าย VM นั้น เราสามารถที่จะเลือก host ปลายทางที่อยู่ใน Cluster นั้น ที่เราต้องการจะย้าย VM ไปทำงานอยู่บน host นั้นๆ ได้ หรือ สามารถกำหนด default ที่จะให้ระบบของ AHV เลือก host ปลายทางเองโดยอัตโนมัติ.</p>
+</li>
+<li><p>คลิก <strong>Migrate</strong> เพื่อย้าย VM ไปยัง Host ที่เลือกไว้.</p>
+<p>เมื่อเสร็จสิ้นกระบวนการย้าย VM แล้ว ให้เราตรวจสอบว่า VM นั้นได้มีการเปลี่ยน host location จากบน host เดิม ไปยัง host ใหม่ที่เราเลือกไว้เรียบร้อยแล้ว ตามรูปด้านล่างนี้.</p>
+<div class="figure align-default">
+<img alt="_images/manage_workloads_04.png" src="_images/manage_workloads_04.png" />
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p>เราสามารถตรวจสอบ progress ของการ migrate ได้ด้วยการไปยังแท็ป <strong>ALL VM Tasks</strong> ที่อยู่ด้านล่าง.</p>
+</div></blockquote>
+<div class="figure align-default">
+<img alt="_images/manage_workloads_03_a.png" src="_images/manage_workloads_03_a.png" />
+</div>
+</div>
+</div>
+<div class="section" id="configuring-affinity-policies">
+<h2>Configuring Affinity Policies<a class="headerlink" href="#configuring-affinity-policies" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>ใน <strong>Prism Element &gt; VM &gt; Table</strong>, เลือก <em>Initials</em>-<strong>Linux_VM</strong> ที่สร้างไว้.</p></li>
+<li><p>เลือก <strong>Powered Off</strong> VM, แล้วคลิก <strong>Update</strong> เลื่อนลงด้านล่างแล้วคลิก <strong>+ Set Affinity</strong>.</p></li>
+<li><p>ให้เลือก 2 <strong>Host</strong> ที่ต้องการกำหนดให้ VM สามารถทำงานได้เฉพาะ 2 Host นั้นๆ ซึ่งเป็นการกำหนด <strong>affinity rule</strong> ให้กับ VM นั้น แล้วจากนั้น กด <strong>Save</strong> และ <strong>Save</strong> อีกครั้งเพื่อเสร็จสิ้นขั้นตอน.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>เราควรเลือกไว้มากกว่า 1 host เพื่อที่จะได้มี host อื่นๆ ที่สามารถรองรับการ migrate VM ได้ ในกรณีที่เกิดเหตุการณ์มี Node เสียหาย.</p>
+</div>
+</li>
+<li><p>Power on VM และทำการตรวจสอบว่า VM นั้นได้ทำงานอยู่บน <strong>Hosts</strong> ที่เราได้กำหนดตามนโยบายของ Affinity rule.</p></li>
+<li><p>เลือก VM แล้วกด <strong>Migrate</strong> จาก Action List ด้านล่าง.</p>
+<p>เราจะได้รับข้อความตามล่างนี้:</p>
+<blockquote>
+<div><dl class="describe">
+<dt>
+<code class="sig-name descname">This VM has host affinity with 2 out of the 4 available hosts. It can only be migrated to those hosts.</code></dt>
+<dd></dd></dl>
+
+<p>(VM นี้ ได้ถูกกำหนด affinity rule ไว้บน 2 hosts จาก 4 hosts ซึ่งมันจะสามารถถูกย้ายได้เฉพาะบน 2 hosts ที่กำหนดเท่านั้น)</p>
+</div></blockquote>
+</li>
+<li><p>จากนั้น ให้กด  <strong>Migrate</strong>.</p>
+<p>เราจะเห็นว่า VM ถูกย้ายไปอยู่บนอีก host ตามที่เราเลือกไว้ก่อนหน้านี้.</p>
+</li>
+</ol>
+<p>โดยทั่วไปแล้ว VM-to-Host affinity rules นี้ ถูกนำมาใช้ในการกำหนด VM ต่างๆ ให้ไปทำงานอยู่บน hosts ที่ถูกกำหนดไว้ เพื่อเหตุผลในการจัดการทางด้าน performance หรือเรื่อง license ของซอฟท์แวร์ และนอกจากนั้น AHV ยังสามารถสร้าง VM-to-VM anti-affinity rules ได้เช่นเดียวกัน ซึ่งจะใช้สำหรับแอพพลิเคชันที่มีการทำ high available ที่เราจะต้องแน่ใจว่า หลายๆ instance หรือ VM ของแอพพลิเคชันนั้นๆ ที่ใช้งานเป็น HA cluster กันโดยจะไม่ทำงานอยู่บน Host เดียวกัน ซึ่งอาจจะทำให้ instance/vm นั้นเสียขึ้นมาทั้งคู่ได้ ในกรณีที่ถ้า Host นั้นๆ เสียหาย.</p>
+</div>
+<div class="section" id="high-availability-dynamic-scheduling">
+<h2>High Availability &amp; Dynamic Scheduling<a class="headerlink" href="#high-availability-dynamic-scheduling" title="Permalink to this headline">¶</a></h2>
+<p>ต่างจาก ESXi โดยสำหรับ AHV นั้น การทำ HA high availability จะถูกเปิดใช้งานโดย default และจะทำการ restart VM บน Node ที่เสียให้ไปทำงานอยู่บน Node อื่นๆ ที่เหมาะสมใน cluster โดยอัตโนมัติ นอกจากนั้น เรายังสามารถทำการจอง resource ในการทำ HA ไว้ได้เลย เพื่อให้มั่นใจว่าจะมี resource เหลือในกระบวนการทำ HA อย่างแน่นอน.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To enable memory reservation, select <strong>Enable HA Reservation</strong> under <em class="fa fa-cog"></em> <strong>&gt; Manage VM High Availability</strong>.</p>
+<p>As memory is already limited on the shared cluster resources, please do NOT enable HA memory reservations.</p>
+</div>
+<p>ด้วย <strong>Acropolis Dynamic Scheduler</strong> service, service นั้น AHV สามารถทำงานได้อย่างชาญฉลาดในการมอนิเตอร์การใช้งาน resource ของระบบ เพื่อที่จะสามารถทำการย้าย VM ต่างๆ ที่อยู่บน host ที่มี workload ที่มีการใช้งานเกินกำหนดของระบบแล้ว ไปยัง host อื่นๆ ภายใน cluster ได้โดยอัตโนมัติ เพื่อที่จะทำให้แต่ละ host มีการทำงานด้วย workload performance ที่เหมาะสมกันทั้ง cluster โดยฟังก์ชันนี้จะถูกเปิดใช้งานอยู่แล้ว โดยไม่ต้องทำการปรับ configuration เพิ่มเติมแต่อย่างใด.</p>
+<p>ประโยชน์ของ Nutanix AHV solution นั้น นอกจากจะสามารถตัดสินใจในการย้าย VM ไปยัง host อื่นๆ จากการใช้งานของ CPU/memory ที่สูง แล้วยังสามารถตัดสินจากตัว storage performance อีกด้วย .</p>
+<p>สามารถเรียนรู้เพิ่มเติมเรื่อง <strong>Acropolis Dynamic Scheduler</strong> <a class="reference external" href="https://nutanixbible.com/#anchor-book-of-aos-dynamic-scheduler">ได้ที่นี่</a>.</p>
+</div>
+<div class="section" id="prism-search">
+<h2>Prism Search<a class="headerlink" href="#prism-search" title="Permalink to this headline">¶</a></h2>
+<p>เราสามารถค้นหาสิ่งต่างๆ ได้อย่างง่ายดายโดยใช้ <strong>Prism Central</strong>. ลองค้นหาด้วยตัวอย่างด้านลางใน <strong>Prism Central Search</strong>.</p>
+<p>Suggestions:</p>
+<ul class="simple">
+<li><p>vm cpu &gt; 1</p></li>
+<li><p>vm mem &gt; 2</p></li>
+<li><p>vm iops</p></li>
+<li><p>create vm</p></li>
+<li><p>powered on</p></li>
+<li><p>powered on cpu = 8</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>ใน <strong>Prism Central &gt;</strong> <em class="fa fa-search"></em>.</p></li>
+</ol>
+<ul class="simple">
+<li><p>ตรวจสอบผลที่ได้: Entity, Alerts, and Help.</p></li>
+<li><p>คลิกที่เครื่องหมาย <em class="fa fa-star"></em> ด้านหลังคำค้นหาเพื่อเก็บไว้ใช้ในครั้งถัดไป.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>เราสามารถใช้ hot key (a slash mark, or /) เมื่อต้องการ <strong>search</strong> ใน Prism Element และ Prism Central UI เพื่อความรวดเร็ว.</p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/workload_manage.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Nutanix TH.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

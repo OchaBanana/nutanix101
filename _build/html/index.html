@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ยินดีต้อนรับสู่ Nutanix 101’s Honds-On Workshop</title>
+    <title>Nutanix 101 TH</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Test" href="test.html" />
+    <link rel="next" title="Prism Element" href="pe.html" />
 
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -59,7 +59,40 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="test.html">Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pe.html">Prism Element</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pe.html#prism-element-ui-review">Prism Element UI Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dsf.html">Distributed Storage Fabric</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dsf.html#configuring-storage-containers">Configuring Storage Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dsf.html#replication-factor-rf">Replication Factor (RF)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config_network.html">Configuring Virtual Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config_network.html#setup-user-vm-network">Setup User VM Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_network.html#setup-user-vm-network-with-ipam">Setup User VM Network with IPAM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_workload.html">Deploying Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deploy_workload.html#creating-a-windows-vm">Creating a Windows VM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy_workload.html#creating-a-linux-vm">Creating a Linux VM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html">Workload Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#power-actions-and-console-access">Power Actions and Console Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#cloning-vms">Cloning VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#migrating-a-vm-between-hosts">Migrating a VM Between Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#configuring-affinity-policies">Configuring Affinity Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#high-availability-dynamic-scheduling">High Availability &amp; Dynamic Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#prism-search">Prism Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_protection.html">Data Protection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_protection.html#vm-snapshots">VM Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_protection.html#protection-domains">Protection Domains</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="key_take.html">Takeaways</a></li>
 </ul>
 </ul>
 </li>
@@ -90,7 +123,13 @@
       <div class="col-md-3">
         <div id="sidebar" class="bs-sidenav" role="complementary"><p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="test.html">Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pe.html">Prism Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsf.html">Distributed Storage Fabric</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_network.html">Configuring Virtual Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_workload.html">Deploying Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html">Workload Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_protection.html">Data Protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_take.html">Takeaways</a></li>
 </ul>
 
         </div>
@@ -98,46 +137,211 @@
     <div class="body col-md-9 content" role="main">
       
   <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="test.html">Test</a></li>
-</ul>
+</div>
+<div class="section" id="getting-started">
+<span id="id1"></span><h1>ยินดีต้อนรับสู่<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="nutanix-101-s-honds-on-workshop">
-<span id="getting-started"></span><h1>ยินดีต้อนรับสู่ Nutanix 101’s Honds-On Workshop<a class="headerlink" href="#nutanix-101-s-honds-on-workshop" title="Permalink to this headline">¶</a></h1>
-<p>ทดสอบภาษาไทย</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is note</p>
+<h1>Nutanix 101’s Honds-On Workshop<a class="headerlink" href="#nutanix-101-s-honds-on-workshop" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>ใน Lab นี้จะเป็นการอธิบายและแนะนำการใช้งานในส่วนต่างๆของ Prism Element รวมไปถึงแนะนำการดูแลระบบ ไม่ว่าจะเป็น Storage,  Networking, การสร้าง VM บน AHV และการบริหารจัดการด้วย Prism
+นอกจากนั้นยังมีแนะนำการใช้งาน Data Protection รวมไปถึงการทำ Snapshots และ Replication</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This is warning</p>
+<div class="section" id="what-s-new">
+<h2>What’s New<a class="headerlink" href="#what-s-new" title="Permalink to this headline">¶</a></h2>
+<p>ปัจจุบัน Nutanix AOS version 5.18.X แต่เนื่องจาก Labs ชุดนี้ถูกจัดทำขึ้นใน Nutanix AOS Version 5.11.X ดังนั้นอาจจะมีภาพ, เสียง และ เนื้อหาที่ไม่ตรงกับ Version ปัจจุบันที่ใช้ใน Labs จริง จึงต้องขออภัยไว้ ณ.ที่นี้ด้วย</p>
 </div>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>This is hint</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Pro Tip
-This Pro Tip</p>
-</div>
-<em class="fa fa-check"></em><dl class="field-list simple">
-<dt class="field-odd"><em class="fa fa-square-o"></em></dt>
-<dd class="field-odd"><p>task 1</p>
-</dd>
-<dt class="field-even"><em class="fa fa-check-square-o"></em></dt>
-<dd class="field-even"><p>task 2</p>
-</dd>
-<dt class="field-odd"><em class="fa fa-check-square-o"></em></dt>
-<dd class="field-odd"><p>task 3</p>
+<div class="section" id="agenda">
+<h2>Agenda<a class="headerlink" href="#agenda" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Nutanix 101 Labs</dt><dd><ul>
+<li><p>Prism Element</p></li>
+<li><p>Distributed Storage Fabric</p></li>
+<li><p>Configuring Virtual Networks</p></li>
+<li><p>Deploying Workloads</p></li>
+<li><p>Workload Management</p></li>
+<li><p>Data Protection</p></li>
+</ul>
 </dd>
 </dl>
-<p><em class="fa fa-check"></em>
-<em class="fa fa-check lg"></em>
-<em class="fa fa-square-o"></em>
-<em class="fa fa-bars"></em></p>
+</li>
+</ul>
+</div>
+<div class="section" id="introductions">
+<h2>Introductions<a class="headerlink" href="#introductions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Name</p></li>
+<li><p>Familiarity with Nutanix</p></li>
+</ul>
+</div>
+<div class="section" id="initial-setup">
+<h2>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">¶</a></h2>
+<p>Nutanix Workshops ใช้งานอยู่บน Nutanix Hosted POC environment. เราได้เตรียมสิ่งที่จำเป็นต้องใช้ใน Labs ไว้ให้แล้วเช่น images, networks, และ VMs.</p>
+<ul class="simple">
+<li><p>Take note of the <em>Passwords</em> being used.</p></li>
+<li><p>VPN to Nutanix Labs ด้วยข้อมูลประกอบด้านล่าง</p></li>
+<li><p>ผู้เรียนจะถูกแบ่งออกเป็น 3 กลุ่ม จำนวนเท่าๆ กัน</p></li>
+</ul>
+<strong><font color="red">- **ห้าม ทำการใดๆ กับ VMs, Images, Network ใดๆ ที่ไม่ใช่สิ่งที่ผู้เรียนคนนั้นๆ สร้างใน Labs นี้</font></strong><div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ภายใน Labs นี้ จะมีการยกตัวอย่างด้วย <em>XYZ</em> หรือ <em>Initial</em> อยู่บ่อยครั้ง ดังนั้นให้ผู้เรียนสังเกตุ และเปลี่ยนตัวอย่างดังกล่าวให้เป็นชื่อของผู้เรียนเอง หรือเป็น User #No. ที่ได้รับมอบหมาย</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="vpn-access-instructions">
+<h2>VPN Access Instructions<a class="headerlink" href="#vpn-access-instructions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pulse-secure-vpn-client">
+<h3>Pulse Secure VPN Client<a class="headerlink" href="#pulse-secure-vpn-client" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>หากผู้เรียนที่ใช้งาน Pulse Secure VPN อยู่แล้ว ให้ข้ามไปที่ขั้นตอนที่ 5</p></li>
+<li><p>ไป download client เพื่อติดตั้งได้ที่:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Direct Download</dt><dd><ul>
+<li><p><a class="reference external" href="https://noc.rmutp.ac.th/wp-content/uploads/32bitinstaller.msi">Windows 32 bit</a></p></li>
+<li><p><a class="reference external" href="https://noc.rmutp.ac.th/wp-content/uploads/64bitinstaller.msi">Windows 64 bit</a></p></li>
+<li><p><a class="reference external" href="https://noc.rmutp.ac.th/wp-content/uploads/macinstaller.dmg">Mac OS</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Download and install client</p></li>
+<li><p>Logout of the Web UI</p></li>
+<li><dl class="simple">
+<dt>เปิด client แล้ว ADD connection ตามข้อมูลต่อไปนี้:</dt><dd><ul class="simple">
+<li><p><strong>Type:</strong> Policy Secure (UAC) or Connection Server(VPN)</p></li>
+<li><p><strong>Name:</strong> X-Labs - BLR</p></li>
+<li><p><strong>Server URL:</strong> xlv-blr.xlabs.nutanix.com</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Once setup, login with the supplied credentials</p></li>
+</ol>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>กลุ่มที่ 1</p></th>
+<th class="head"><p>กลุ่มที่ 2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>UserName</p></td>
+<td><p>BLR-POC227-User01, …, BLR-POC227-User20</p></td>
+<td><p>BLR-POC228-User01, …, BLR-POC228-User20</p></td>
+</tr>
+<tr class="row-odd"><td><p>Password</p></td>
+<td><p>nx2Tech858!</p></td>
+<td><p>nx2Tech985!</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="environment-details">
+<span id="environment"></span><h2>Environment Details<a class="headerlink" href="#environment-details" title="Permalink to this headline">¶</a></h2>
+<p>Nutanix Workshops ใช้งานอยู่บน Nutanix Hosted POC environment. เราได้เตรียมสิ่งที่จำเป็นต้องใช้ใน Labs ไว้ให้แล้วเช่น images, networks, และ VMs.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>กลุ่มที่ 1</p></th>
+<th class="head"><p>กลุ่มที่ 2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Cluster Name</p></td>
+<td><p>BLR-POC227</p></td>
+<td><p>BLR-POC228</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cluster IP</p></td>
+<td><p><a class="reference external" href="http://10.136.227.37">http://10.136.227.37</a></p></td>
+<td><p><a class="reference external" href="http://10.136.228.37">http://10.136.228.37</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Prism Central IP</p></td>
+<td><p><a class="reference external" href="http://10.136.227.39">http://10.136.227.39</a></p></td>
+<td><p><a class="reference external" href="http://10.136.228.39">http://10.136.228.39</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>PE/PC Username</p></td>
+<td><p>admin</p></td>
+<td><p>admin</p></td>
+</tr>
+<tr class="row-even"><td><p>PE/PC Password</p></td>
+<td><p>nx2Tech858!</p></td>
+<td><p>nx2Tech985!</p></td>
+</tr>
+<tr class="row-odd"><td><p>CVM Username</p></td>
+<td><p>nutanix</p></td>
+<td><p>nutanix</p></td>
+</tr>
+<tr class="row-even"><td><p>CVM Password</p></td>
+<td><p>nx2Tech858!</p></td>
+<td><p>nx2Tech985!</p></td>
+</tr>
+</tbody>
+</table>
+<p>Each cluster has a dedicated domain controller VM, <strong>DC</strong>, responsible for providing AD services for the <strong>NTNXLAB.local</strong> domain. The domain is populated with the following Users and Groups:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 35%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Username(s)</p></th>
+<th class="head"><p>Password</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Administrators</p></td>
+<td><p>Administrator</p></td>
+<td><p>nutanix/4u</p></td>
+</tr>
+<tr class="row-odd"><td><p>SSP Admins</p></td>
+<td><p>adminuser01-adminuser25</p></td>
+<td><p>nutanix/4u</p></td>
+</tr>
+<tr class="row-even"><td><p>SSP Developers</p></td>
+<td><p>devuser01-devuser25</p></td>
+<td><p>nutanix/4u</p></td>
+</tr>
+<tr class="row-odd"><td><p>SSP Operators</p></td>
+<td><p>operator01-operator25</p></td>
+<td><p>nutanix/4u</p></td>
+</tr>
+<tr class="row-even"><td><p>SSP Consumers</p></td>
+<td><p>consumer01-consumer25</p></td>
+<td><p>nutanix/4u</p></td>
+</tr>
+<tr class="row-odd"><td><p>SSP Custom</p></td>
+<td><p>custom01-custom25</p></td>
+<td><p>nutanix/4u</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 

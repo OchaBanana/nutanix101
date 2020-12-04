@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prism Element</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Distributed Storage Fabric" href="dsf.html" />
+    <link rel="prev" title="ยินดีต้อนรับสู่" href="index.html" />
+
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  </head><body>
+
+  <div id="navbar" class="navbar-inverse navbar-default ">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/NutanixWorkshops.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html"> <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Prism Element</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prism-element-ui-review">Prism Element UI Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dsf.html">Distributed Storage Fabric</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dsf.html#configuring-storage-containers">Configuring Storage Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dsf.html#replication-factor-rf">Replication Factor (RF)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config_network.html">Configuring Virtual Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config_network.html#setup-user-vm-network">Setup User VM Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_network.html#setup-user-vm-network-with-ipam">Setup User VM Network with IPAM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_workload.html">Deploying Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deploy_workload.html#creating-a-windows-vm">Creating a Windows VM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy_workload.html#creating-a-linux-vm">Creating a Linux VM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html">Workload Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#power-actions-and-console-access">Power Actions and Console Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#cloning-vms">Cloning VMs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html#high-availability-live-migration-affinity-policies">High Availability, Live Migration &amp; Affinity Policies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#high-availability">High availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#live-migration">Live Migration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#affinity-policies">Affinity Policies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html#data-protection">Data Protection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workload_manage.html#vm-snapshots">VM Snapshots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_protection.html">Protection Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_take.html">Takeaways</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Prism Element</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prism-element-ui-review">Prism Element UI Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dsf.html">Distributed Storage Fabric</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_network.html">Configuring Virtual Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_workload.html">Deploying Workloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html">Workload Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html#high-availability-live-migration-affinity-policies">High Availability, Live Migration &amp; Affinity Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workload_manage.html#data-protection">Data Protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_protection.html">Protection Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_take.html">Takeaways</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="prism-element">
+<span id="pe"></span><h1>Prism Element<a class="headerlink" href="#prism-element" title="Permalink to this headline">¶</a></h1>
+<p><strong>Prism</strong> รองรับการทำงานผ่าน Web UI ใช้สำหรับบริหารจัดการ Nutanix Clusters, Prism จะถูกติดตั้งในทุกๆ Controller VM (CVM) และจะเรียกว่า Prism Element สามารถเรียกใช้งานด้วย IP ของทุกๆ CVM หรือ Virtual IP ของ Nutanix Cluster</p>
+<ol class="arabic">
+<li><p>สามารถเข้าใช้งาน PRISM ด้วย URL:  https://&lt;<em>NUTANIX-CLUSTER-IP</em>&gt;:9440</p></li>
+<li><p>เข้าสู่ระบบโดยการกรอกข้อมูล credentials:</p>
+<ul class="simple">
+<li><p><strong>Username</strong> - admin</p></li>
+<li><p><strong>Password</strong> - จาก <a class="reference internal" href="index.html#environment"><span class="std std-ref">Lab Guide Home</span></a></p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/nutanix_tech_overview_01.png" src="_images/nutanix_tech_overview_01.png" />
+</div>
+</li>
+<li><p>หลังจาก log in เข้าสู่ Prism Element. ให้เราใช้งานผ่าน Prism UI ศึกษารายละเอียดต่างๆในหน้า <strong>Home</strong> และหน้าอื่นๆ</p></li>
+<li><p>ให้ลองใช้ Home screen และศึกษาการทำงานในส่วนต่างๆดังต่อไปนี้:</p>
+<ul class="simple">
+<li><p>Hypervisor</p></li>
+<li><p>Version</p></li>
+<li><p>Hardware Model</p></li>
+<li><p>Health</p></li>
+<li><p>VM Summary</p></li>
+<li><p>Warning Alerts</p></li>
+<li><p>Data Resiliency Status</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/nutanix_tech_overview_02.png" src="_images/nutanix_tech_overview_02.png" />
+</div>
+</li>
+<li><p>ตรวจสอบเมนูต่างๆ โดย คลิกที่ <strong>Home</strong></p>
+<div class="figure align-default">
+<img alt="_images/nutanix_tech_overview_03.png" src="_images/nutanix_tech_overview_03.png" />
+</div>
+</li>
+<li><p>ตรวจสอบ Hardware ที่อยู่ใน Cluster โดยไปที่  <strong>Home &gt; Hardware</strong>, คลิก**Hardware**, แล้วคลิก**Diagram**.</p></li>
+<li><p>ตรวจสอบข้อมูลและรายละเอียดต่างๆในส่วนของ Hardware:</p>
+<ul class="simple">
+<li><p>Blocks</p></li>
+<li><p>Hosts</p></li>
+<li><p>Memory</p></li>
+<li><p>CPU</p></li>
+<li><p>Disks</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/nutanix_tech_overview_04.png" src="_images/nutanix_tech_overview_04.png" />
+</div>
+</li>
+<li><p>ลองตรวจสอบข้อมูลและรายละเอียดต่างๆในเมนูหัวข้อดังต่อไปนี้:</p>
+<ul class="simple">
+<li><p>VM</p></li>
+<li><p>Health</p></li>
+<li><p>Network</p></li>
+<li><p>Data Protection</p></li>
+<li><p>Storage</p></li>
+<li><p>Alerts</p></li>
+<li><p>Etc.</p></li>
+</ul>
+</li>
+<li><p>ลองตรวจสอบ icons บน toolbar ต่างๆในหัวข้อดังต่อไปนี้</p>
+<ul class="simple">
+<li><p><em class="fa fa-heartbeat"></em> = Health</p></li>
+<li><p><em class="fa fa-bell"></em> = Alarms</p></li>
+<li><p><em class="fa fa-circle-o"></em> = Tasks</p></li>
+<li><p><em class="fa fa-search"></em> = Search</p></li>
+<li><p><em class="fa fa-question"></em> = Help</p></li>
+<li><p><em class="fa fa-cog"></em> = Configuration</p></li>
+<li><p><em class="fa fa-user"></em> = User</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="_images/nutanix_tech_overview_05.png" src="_images/nutanix_tech_overview_05.png" />
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>จากภาพด้านบน อาจจะมีความแตกต่างจาก Lab ที่ผู้เรียนใช้งาน ไม่มีผลใดๆ ต่อการทำ Lab.</p>
+</div>
+</li>
+</ol>
+<div class="section" id="prism-element-ui-review">
+<h2>Prism Element UI Review<a class="headerlink" href="#prism-element-ui-review" title="Permalink to this headline">¶</a></h2>
+<p>เราสามารถตรวจสอบ AOS version ที่ใช้งานอยู่ปัจจุบันได้จากที่ไหน?</p>
+<div class="figure align-default">
+<img alt="_images/nutanix_tech_overview_06_5-11.png" src="_images/nutanix_tech_overview_06_5-11.png" />
+</div>
+<p>เราสามารถตรวจสอบโดยการคลิกที่ <strong>User</strong> drop down <em class="fa fa-user"></em> ที่อยู่มุมบนขวา, แล้วคลิกที่ <strong>About Nutanix</strong>.</p>
+<p>เราสามารถตรวจสอบ จำนวน Host หรือ Node และ Capacity ที่ใช้งานอยู่ในปัจจุบันได้จากที่ไหน?</p>
+<div class="figure align-default">
+<img alt="_images/nutanix_tech_overview_07.png" src="_images/nutanix_tech_overview_07.png" />
+</div>
+<p>สามารถตรวจสอบได้โดยไปที่เมนู แล้วเลือก <strong>Hardware</strong>, แล้วคลิก**Table**.</p>
+<p>เราสามารถตรวจสอบ สุขภาพ(Health) ของระบบได้จากที่ไหน?</p>
+<div class="figure align-default">
+<img alt="_images/nutanix_tech_overview_08.png" src="_images/nutanix_tech_overview_08.png" />
+</div>
+<p>เราสามารถตรวจสอบได้โดยการไปที่เมนู แล้วเลือก  <strong>Health</strong>, คลิก**Summary** ทางด้านขวา.</p>
+<p>สามารถตรวจสอบข้อมูลขั้นตอนการทำงานล่าสุดของระบบได้จากที่ไหน?</p>
+<div class="figure align-default">
+<img alt="_images/nutanix_tech_overview_09.png" src="_images/nutanix_tech_overview_09.png" />
+</div>
+<p>ในหน้านี้เราสามารถ ตรวจสอบการทำงานต่างๆในแต่ละส่วนของระบบทั้งปัจจุบันและที่ทำงานเสร็จสิ่นไปแล้วได้ 2 วิธี</p>
+<p>เราสามารถตรวจสอบได้โดยการไปที่เมนู แล้วเลือก  <strong>Tasks</strong>, หรือคลิกที่เครื่องหมาย <em class="fa fa-circle-o"></em> ใน toolbar, ที่อยู่ด้านขวามือของเครื่องหมาย <em class="fa fa-bell"></em>.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/pe.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Nutanix TH.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
