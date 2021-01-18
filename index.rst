@@ -94,18 +94,14 @@ Pulse Secure VPN Client
 #. Once setup, login with the supplied credentials
 
 .. list-table::
-  :widths: 20 40 40
+  :widths: 50 50
   :header-rows: 1
 
-  * - 
-    - กลุ่มที่ 1
-    - กลุ่มที่ 2
   * - UserName
-    - BLR-POC227-User01, ..., BLR-POC227-User20
-    - BLR-POC228-User01, ..., BLR-POC228-User20
+    - RTP-POC016-User01, RTP-POC016-User02, ..., BRTP-POC016-User20
   * - Password
-    - nx2Tech858!
-    - nx2Tech985!
+    - ntnxTech43@!
+
 
 .. _environment:
 
@@ -115,33 +111,24 @@ Environment Details
 Nutanix Workshops ใช้งานอยู่บน Nutanix Hosted POC environment. เราได้เตรียมสิ่งที่จำเป็นต้องใช้ใน Labs ไว้ให้แล้วเช่น images, networks, และ VMs.
 
 .. list-table::
-  :widths: 20 40 40
+  :widths: 50 50
   :header-rows: 1
 
-  * - 
-    - กลุ่มที่ 1
-    - กลุ่มที่ 2
   * - Cluster Name
-    - BLR-POC227
-    - BLR-POC228
+    - RTP-POC016
   * - Cluster IP
-    - http://10.136.227.37
-    - http://10.136.228.37
+    - http://10.55.16.37
   * - Prism Central IP
-    - http://10.136.227.39
-    - http://10.136.228.39
+    - http://10.55.16.39
   * - PE/PC Username
     - admin
-    - admin
   * - PE/PC Password
-    - nx2Tech858!
-    - nx2Tech985!
+    - ntnxTech43@!
   * - CVM Username
     - nutanix
-    - nutanix
   * - CVM Password
-    - nx2Tech858!
-    - nx2Tech985!
+    - ntnxTech43@!
+
 
 Each cluster has a dedicated domain controller VM, **DC**, responsible for providing AD services for the **NTNXLAB.local** domain. The domain is populated with the following Users and Groups:
 
