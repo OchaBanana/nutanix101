@@ -94,7 +94,7 @@ Pulse Secure VPN Client
 #. Once setup, login with the supplied credentials
 
 .. list-table::
-  :widths: 50 50
+  :widths: 20 80
   :header-rows: 1
 
   * - UserName
@@ -111,7 +111,7 @@ Environment Details
 Nutanix Workshops ใช้งานอยู่บน Nutanix Hosted POC environment. เราได้เตรียมสิ่งที่จำเป็นต้องใช้ใน Labs ไว้ให้แล้วเช่น images, networks, และ VMs.
 
 .. list-table::
-  :widths: 50 50
+  :widths: 20 80
   :header-rows: 1
 
   * - Cluster Name
