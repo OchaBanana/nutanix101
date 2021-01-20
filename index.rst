@@ -98,7 +98,7 @@ Pulse Secure VPN Client
   :header-rows: 1
 
   * - UserName
-    - RTP-POC016-User01, RTP-POC016-User02, ..., BRTP-POC016-User20
+    - RTP-POC010-User01, RTP-POC010-User02, ..., BRTP-POC010-User20
   * - Password
     - ntnxTech43@!
 
@@ -115,11 +115,11 @@ Nutanix Workshops ใช้งานอยู่บน Nutanix Hosted POC enviro
   :header-rows: 1
 
   * - Cluster Name
-    - RTP-POC016
+    - RTP-POC010
   * - Cluster IP
-    - http://10.55.16.37
+    - http://10.55.10.37
   * - Prism Central IP
-    - http://10.55.16.39
+    - http://10.55.10.39
   * - PE/PC Username
     - admin
   * - PE/PC Password
